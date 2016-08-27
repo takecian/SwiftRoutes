@@ -21,16 +21,16 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/SwiftRoutes'
+  s.homepage         = 'https://github.com/takecian/SwiftRoutes'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'takecian' => 'fujikidev@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/SwiftRoutes.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/takecian/SwiftRoutes.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SwiftRoutes/Classes/**/*'
+  s.source_files = 'Sources/*'
   
   # s.resource_bundles = {
   #   'SwiftRoutes' => ['SwiftRoutes/Assets/*.png']

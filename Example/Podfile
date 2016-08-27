@@ -1,6 +1,0 @@
-use_frameworks!
-target 'SwiftRoutes_Tests' do
-  pod 'SwiftRoutes', :path => '../'
-  
-  
-end

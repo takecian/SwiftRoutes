@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias RouteHandler = ((Dictionary<String, String>) -> Bool)
+public typealias SwiftRoutesHandler = ((Dictionary<String, String>) -> Bool)
 
 let globalScheme = "SwiftRoutesGlobalScheme"
 let keyAbsoluteString = "absoluteString"
@@ -17,7 +17,7 @@ public class SwiftRoutes {
 
     private static var routesControllers = [SwiftRoutes]()
 
-    private var handlers = Dictionary<String, RouteHandler>()
+    private var handlers = Dictionary<String, SwiftRoutesHandler>()
     private var scheme: String
     private var routes = [SwiftRoute]()
     
@@ -25,7 +25,7 @@ public class SwiftRoutes {
         self.scheme = scheme
     }
     
-    public class func addRoute(routePattern: NSURL, handler: RouteHandler) {
+    public class func addRoute(routePattern: NSURL, handler: SwiftRoutesHandler) {
         if routePattern.scheme.characters.count > 0 {
             SwiftRoutes.routesForScheme(routePattern.scheme).addRoute(routePattern, priority: 0, handler: handler)
         } else {
@@ -78,7 +78,7 @@ public class SwiftRoutes {
         return SwiftRoutes.routesForScheme(globalScheme)
     }
     
-    public func addRoute(routePattern: NSURL, priority: Int, handler: RouteHandler) {
+    public func addRoute(routePattern: NSURL, priority: Int, handler: SwiftRoutesHandler) {
         let route = SwiftRoute(pattern: routePattern, priority: priority, handler: handler)
         routes.append(route)
     }
@@ -128,10 +128,10 @@ public class SwiftRoutes {
 
 class SwiftRoute: Equatable {
     private let routePattern: NSURL
-    private var handler: RouteHandler
+    private var handler: SwiftRoutesHandler
     private var priority: Int
     
-    init(pattern: NSURL, priority: Int, handler: RouteHandler) {
+    init(pattern: NSURL, priority: Int, handler: SwiftRoutesHandler) {
         self.routePattern = pattern
         self.priority = priority
         self.handler = handler

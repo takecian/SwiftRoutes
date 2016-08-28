@@ -10,7 +10,7 @@
 		AC571B911D714E6E00BA55F3 /* SwiftRoutes.h in Headers */ = {isa = PBXBuildFile; fileRef = AC571B901D714E6E00BA55F3 /* SwiftRoutes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC571B981D714E6E00BA55F3 /* SwiftRoutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC571B8D1D714E6E00BA55F3 /* SwiftRoutes.framework */; };
 		AC571B9D1D714E6E00BA55F3 /* SwiftRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC571B9C1D714E6E00BA55F3 /* SwiftRoutesTests.swift */; };
-		AC571BAB1D714E8D00BA55F3 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC571BA91D714E8D00BA55F3 /* ReplaceMe.swift */; };
+		AC571BAD1D714F9500BA55F3 /* SwiftRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC571BAC1D714F9500BA55F3 /* SwiftRoutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 		AC571B971D714E6E00BA55F3 /* SwiftRoutesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRoutesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC571B9C1D714E6E00BA55F3 /* SwiftRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRoutesTests.swift; sourceTree = "<group>"; };
 		AC571B9E1D714E6E00BA55F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC571BA91D714E8D00BA55F3 /* ReplaceMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
+		AC571BAC1D714F9500BA55F3 /* SwiftRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRoutes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 		AC571BA71D714E8D00BA55F3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AC571BA91D714E8D00BA55F3 /* ReplaceMe.swift */,
+				AC571BAC1D714F9500BA55F3 /* SwiftRoutes.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -206,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC571BAB1D714E8D00BA55F3 /* ReplaceMe.swift in Sources */,
+				AC571BAD1D714F9500BA55F3 /* SwiftRoutes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +323,7 @@
 		AC571BA21D714E6E00BA55F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -333,12 +334,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.takecian.SwiftRoutes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AC571BA31D714E6E00BA55F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -391,6 +394,7 @@
 				AC571BA31D714E6E00BA55F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC571BA41D714E6E00BA55F3 /* Build configuration list for PBXNativeTarget "SwiftRoutesTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +403,7 @@
 				AC571BA61D714E6E00BA55F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -22,15 +22,19 @@ class SwiftRoutesTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+        SwiftRoutes.addRoute(NSURL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
+            print("abc called, \(params)")
+            return true
         }
+
+        SwiftRoutes.addRoute(NSURL(string: "/search")!) { (params) -> Bool in
+            print("search called, \(params)")
+            return true
+        }
+
+//        SwiftRoutes.routeUrl(NSURL(string: "http://abc/qqq/aaa?test=true")!)
+        SwiftRoutes.routeUrl(NSURL(string: "/search?keyword=aaaa")!)
+        
     }
     
 }

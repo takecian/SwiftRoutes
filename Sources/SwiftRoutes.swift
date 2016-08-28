@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias RouteHandler = ((Dictionary<String, String>) -> Bool)
+public typealias RouteHandler = ((Dictionary<String, String>) -> Bool)
 
 let globalScheme = "SwiftRoutesGlobalScheme"
 let keyAbsoluteString = "absoluteString"
@@ -25,7 +25,7 @@ public class SwiftRoutes {
         self.scheme = scheme
     }
     
-    class func addRoute(routePattern: NSURL, handler: RouteHandler) {
+    public class func addRoute(routePattern: NSURL, handler: RouteHandler) {
         if routePattern.scheme.characters.count > 0 {
             SwiftRoutes.routesForScheme(routePattern.scheme).addRoute(routePattern, priority: 0, handler: handler)
         } else {
@@ -33,7 +33,7 @@ public class SwiftRoutes {
         }
     }
 
-    class func removeRoute(routePattern: NSURL) {
+    public class func removeRoute(routePattern: NSURL) {
         if routePattern.scheme.characters.count > 0 {
             SwiftRoutes.routesForScheme(routePattern.scheme).removeRoute(routePattern)
         } else {
@@ -41,13 +41,13 @@ public class SwiftRoutes {
         }
     }
     
-    class func removeAllRoutes() {
+    public class func removeAllRoutes() {
         for controller in routesControllers {
             controller.removeAllRoutes()
         }
     }
     
-    class func routeUrl(route: NSURL) -> Bool {
+    public class func routeUrl(route: NSURL) -> Bool {
         var handled = false
         if route.scheme.characters.count > 0 {
             let routes = SwiftRoutes.routesForScheme(route.scheme)
@@ -78,12 +78,12 @@ public class SwiftRoutes {
         return SwiftRoutes.routesForScheme(globalScheme)
     }
     
-    func addRoute(routePattern: NSURL, priority: Int, handler: RouteHandler) {
+    public func addRoute(routePattern: NSURL, priority: Int, handler: RouteHandler) {
         let route = SwiftRoute(pattern: routePattern, priority: priority, handler: handler)
         routes.append(route)
     }
     
-    func removeRoute(routePattern: NSURL) {
+    public func removeRoute(routePattern: NSURL) {
         let removeTargets = routes.filter( { r -> Bool in
             routePattern == r.routePattern
         })
@@ -93,11 +93,11 @@ public class SwiftRoutes {
         }
     }
 
-    func removeAllRoutes() {
+    public func removeAllRoutes() {
         routes.removeAll()
     }
 
-    func routeUrl(url: NSURL) -> Bool {
+    public func routeUrl(url: NSURL) -> Bool {
         print("trying to route \(url.absoluteString), scheme = \(scheme)")
         
         var didRoute = false

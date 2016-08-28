@@ -5,13 +5,19 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
+iOS 8.0 or later.
+
 ## Installation
+
+### Carthage
+
+```ruby
+github "takecian/SwiftRoutes"
+```
+
+### Cocoapods
 
 SwiftRoutes is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -22,7 +28,7 @@ pod "SwiftRoutes"
 
 ## Author
 
-takecian, fujikidev@gmail.com
+takecian
 
 ## License
 

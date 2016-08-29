@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = SwiftRoutes is a simple routing library. SwiftRoutes fires handler according to NSURL.
+  s.description      = 'SwiftRoutes is a simple routing library. SwiftRoutes fires handler according to NSURL.'
 
   s.homepage         = 'https://github.com/takecian/SwiftRoutes'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'

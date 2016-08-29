@@ -20,15 +20,22 @@ class SwiftRoutesTests: XCTestCase {
         SwiftRoutes.removeAllRoutes()
     }
 
-    func testExample() {
+    func testExampleWithParams() {
         var abcRouteHandled = false
+        let testUrl = "http://abc/qqq/aaa?test=aaaaaaa&hatena=bookmark"
+        
         SwiftRoutes.addRoute(NSURL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
             abcRouteHandled = true
+            XCTAssertTrue(params["absoluteString"] == testUrl)
+            XCTAssertTrue(params["key"] == "qqq")
+
+            XCTAssertTrue(params["test"] == "aaaaaaa")
+            XCTAssertTrue(params["hatena"] == "bookmark")
             return true
         }
 
         XCTAssertTrue(!abcRouteHandled, "abcRouteHandled handled")
-        XCTAssertTrue(SwiftRoutes.routeUrl(NSURL(string: "http://abc/qqq/aaa?test=true")!), "not handled")
+        XCTAssertTrue(SwiftRoutes.routeUrl(NSURL(string: testUrl)!), "not handled")
         XCTAssertTrue(abcRouteHandled, "abcRouteHandled not handled")
     }
 

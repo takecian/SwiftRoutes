@@ -26,6 +26,24 @@ it, simply add the following line to your Podfile:
 pod "SwiftRoutes"
 ```
 
+## Usage
+
+1. Register route(NSURL) and handler.
+2. Call `routeUrl` with NSURL.
+3. SwiftRoutes fire a handler that matched.
+
+```
+SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/:userid")!) { (params) -> Bool in
+	let userId = params["userid"]
+	let viewController = SomeViewController()
+	viewController.userid = userId
+	navigationController.pushViewController(viewController, animated: true)
+    return true
+}
+
+SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/:userid")!))
+```
+
 ## Author
 
 takecian

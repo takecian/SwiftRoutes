@@ -23,7 +23,7 @@ class SwiftRoutesTests: XCTestCase {
     func testExampleWithParams() {
         var abcRouteHandled = false
         let testUrl = "http://abc/qqq/aaa?test=aaaaaaa&hatena=bookmark"
-        
+
         SwiftRoutes.addRoute(NSURL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
             abcRouteHandled = true
             XCTAssertTrue(params["absoluteString"] == testUrl)

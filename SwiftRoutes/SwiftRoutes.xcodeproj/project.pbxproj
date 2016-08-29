@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6467F6251D73F2A50045BDBC /* SwiftRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6241D73F2A50045BDBC /* SwiftRoute.swift */; };
+		6467F6271D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6261D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift */; };
+		6467F6291D73F3120045BDBC /* Array+SwiftRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6281D73F3120045BDBC /* Array+SwiftRoutes.swift */; };
 		AC571B911D714E6E00BA55F3 /* SwiftRoutes.h in Headers */ = {isa = PBXBuildFile; fileRef = AC571B901D714E6E00BA55F3 /* SwiftRoutes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC571B981D714E6E00BA55F3 /* SwiftRoutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC571B8D1D714E6E00BA55F3 /* SwiftRoutes.framework */; };
 		AC571B9D1D714E6E00BA55F3 /* SwiftRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC571B9C1D714E6E00BA55F3 /* SwiftRoutesTests.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6467F6241D73F2A50045BDBC /* SwiftRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRoute.swift; sourceTree = "<group>"; };
+		6467F6261D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftRoutes.swift"; sourceTree = "<group>"; };
+		6467F6281D73F3120045BDBC /* Array+SwiftRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+SwiftRoutes.swift"; sourceTree = "<group>"; };
 		AC571B8D1D714E6E00BA55F3 /* SwiftRoutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRoutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC571B901D714E6E00BA55F3 /* SwiftRoutes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftRoutes.h; sourceTree = "<group>"; };
 		AC571B921D714E6E00BA55F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				AC571BAC1D714F9500BA55F3 /* SwiftRoutes.swift */,
+				6467F6241D73F2A50045BDBC /* SwiftRoute.swift */,
+				6467F6261D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift */,
+				6467F6281D73F3120045BDBC /* Array+SwiftRoutes.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -120,6 +129,7 @@
 				AC571B891D714E6E00BA55F3 /* Frameworks */,
 				AC571B8A1D714E6E00BA55F3 /* Headers */,
 				AC571B8B1D714E6E00BA55F3 /* Resources */,
+				6467F6231D73EB210045BDBC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -201,12 +211,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6467F6231D73EB210045BDBC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC571B881D714E6E00BA55F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AC571BAD1D714F9500BA55F3 /* SwiftRoutes.swift in Sources */,
+				6467F6271D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift in Sources */,
+				6467F6251D73F2A50045BDBC /* SwiftRoute.swift in Sources */,
+				6467F6291D73F3120045BDBC /* Array+SwiftRoutes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

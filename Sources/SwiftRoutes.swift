@@ -13,6 +13,9 @@ public typealias SwiftRoutesHandler = ((Dictionary<String, String>) -> Bool)
 let globalScheme = "SwiftRoutesGlobalScheme"
 let keyAbsoluteString = "absoluteString"
 
+/**
+ SwiftRoutes manages NSURL and corresponding handler.
+ */
 public class SwiftRoutes {
 
     private static var routesControllers = [SwiftRoutes]()
@@ -124,82 +127,4 @@ public class SwiftRoutes {
         return didRoute
     }
 
-}
-
-class SwiftRoute: Equatable {
-    private let routePattern: NSURL
-    private var handler: SwiftRoutesHandler
-    private var priority: Int
-    
-    init(pattern: NSURL, priority: Int, handler: SwiftRoutesHandler) {
-        self.routePattern = pattern
-        self.priority = priority
-        self.handler = handler
-    }
-    
-    func isMatchUrl(url: NSURL) -> (isMatched: Bool, params: Dictionary<String, String>) {
-        var isMatched = true
-        var params = Dictionary<String, String>()
-        
-        params[keyAbsoluteString] = url.absoluteString
-
-        guard routePattern.routeParames.count == url.routeParames.count else {
-            return (false, params)
-        }
-        
-        var iterator = zip(routePattern.routeParames, url.routeParames).generate()
-        while let i = iterator.next() {
-            let key = i.0.stringByReplacingOccurrencesOfString(":", withString: "", options: [], range: nil)
-            let value = getValue(i.1)
-
-            if i.0.containsString(":") {
-                params[key] = value
-            } else {
-                if key != value {
-                    isMatched = false
-                    break
-                }
-            }
-        }
-
-        if let queryItems = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems {
-            for item in queryItems {
-                params[item.name] = item.value
-            }
-        }
-
-        return (isMatched, params)
-    }
-    
-    private func getValue(original: String) -> String {
-        var string = original
-        if let dotRange = string.rangeOfString("?") {
-            string.removeRange(dotRange.startIndex..<string.endIndex)
-        }
-        return string
-    }
-    
-}
-
-func ==(lhs: SwiftRoute, rhs: SwiftRoute) -> Bool {
-    return lhs.routePattern == rhs.routePattern
-}
-
-extension NSURL {
-    var routeParames: [String] {
-        get {
-            return self.absoluteString.stringByReplacingOccurrencesOfString("\(self.scheme)://", withString: "", options: [], range: nil).componentsSeparatedByString("/").filter({ (s) -> Bool in
-                s.characters.count > 0
-            })
-
-        }
-    }
-}
-
-extension Array where Element : Equatable {
-    mutating func remove(object : Generator.Element) {
-        if let index = self.indexOf(object) {
-            self.removeAtIndex(index)
-        }
-    }
 }

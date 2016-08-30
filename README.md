@@ -31,7 +31,7 @@ it, simply add the following line to your Podfile:
 pod "SwiftRoutes"
 ```
 
-# Simple Usage
+# Usage
 
 1. Register route(NSURL) and handler.
 2. Call `routeUrl` with NSURL.

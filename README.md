@@ -66,7 +66,7 @@ SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/:userid")!) { (p
 SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/1234?name=testname")!))
 ```
 
-# Practical example - Use SwiftRoutes for `UIApplicationShortcutItem`
+# Practical example - Use SwiftRoutes for UIApplicationShortcutItem
 
 This example shows how to perform `UIApplicationShortcutItem` using SwiftRoutes.
 

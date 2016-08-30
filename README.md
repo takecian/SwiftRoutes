@@ -66,6 +66,82 @@ SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/:userid")!) { (p
 SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/1234?name=testname")!))
 ```
 
+### Practical example - Use SwiftRoutes for `UIApplicationShortcutItem`
+
+This example shows how to perform `UIApplicationShortcutItem` using SwiftRoutes.
+
+##### 1. Define UIApplicationShortcutItem in info.plist
+
+Here, two UIApplicationShortcutItems are defined. ShortcutItemType has url to be handled.
+
+```
+	...
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Home</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Home</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>/home</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>key1</key>
+				<string>value1</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Setting</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Setting</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>/setting</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>key1</key>
+				<string>value1</string>
+			</dict>
+		</dict>
+	</array>
+	...
+```
+
+#### 2. Define Route Handler
+
+Define routing when app launches.
+
+```AppDelegate.swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+    	// Define routing
+ 		SwiftRoutes.addRoute(NSURL(string: "/home")!) { (params) -> Bool in
+            self.window.rootViewController.moveToHome()  // pseudo code
+            return true
+        }
+
+        SwiftRoutes.addRoute(NSURL(string: "/setting")!) { (params) -> Bool in
+            self.window.rootViewController.moveSetting() // pseudo code
+            return true
+        }
+    }
+}
+```
+
+#### 3. Handle routes
+
+Just put `SwiftRoutes.routeUrl(_)` in `application(application:performActionForShortcutItem:completionHandler)` and pass return value of `SwiftRoutes.routeUrl(_)` into `completionHandler(_)`.
+
+```
+@available(iOS 9.0, *)
+func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let val = SwiftRoutes.routeUrl(NSURL(string: shortcutItem.type)!)
+        completionHandler(val)
+}
+```
+
 ## Author
 
 takecian

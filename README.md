@@ -30,7 +30,7 @@ it, simply add the following line to your Podfile:
 pod "SwiftRoutes"
 ```
 
-## Usage
+# Simple Usage
 
 1. Register route(NSURL) and handler.
 2. Call `routeUrl` with NSURL.
@@ -46,7 +46,7 @@ SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/")!) { (params) 
 SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/")!))
 ```
 
-### The Parameters Dictionary
+## The Parameters Dictionary
 
 SwiftRoutes provides parameters as Dictionary from following data.
 
@@ -66,11 +66,11 @@ SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/:userid")!) { (p
 SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/1234?name=testname")!))
 ```
 
-### Practical example - Use SwiftRoutes for `UIApplicationShortcutItem`
+# Practical example - Use SwiftRoutes for `UIApplicationShortcutItem`
 
 This example shows how to perform `UIApplicationShortcutItem` using SwiftRoutes.
 
-##### 1. Define UIApplicationShortcutItem in info.plist
+## 1. Define UIApplicationShortcutItem in info.plist
 
 Here, two UIApplicationShortcutItems are defined. ShortcutItemType has url to be handled.
 
@@ -108,9 +108,9 @@ Here, two UIApplicationShortcutItems are defined. ShortcutItemType has url to be
 	...
 ```
 
-#### 2. Define Route Handler
+## 2. Define Route Handler
 
-Define routing when app launches.
+Define route and handler at app launches.
 
 ```AppDelegate.swift
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-#### 3. Handle routes
+## 3. Handle routes
 
 Just put `SwiftRoutes.routeUrl(_)` in `application(application:performActionForShortcutItem:completionHandler)` and pass return value of `SwiftRoutes.routeUrl(_)` into `completionHandler(_)`.
 

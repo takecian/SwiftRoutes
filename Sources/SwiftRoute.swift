@@ -28,11 +28,11 @@ class SwiftRoute: Equatable {
 
         params[keyAbsoluteString] = url.absoluteString
 
-        guard routePattern.routeParames.count == url.routeParames.count else {
+        guard routePattern.routeParams.count == url.routeParams.count else {
             return (false, params)
         }
 
-        var iterator = zip(routePattern.routeParames, url.routeParames).generate()
+        var iterator = zip(routePattern.routeParams, url.routeParams).generate()
         while let i = iterator.next() {
             let key = i.0.stringByReplacingOccurrencesOfString(":", withString: "", options: [], range: nil)
             let value = getValue(i.1)

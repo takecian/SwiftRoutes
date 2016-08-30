@@ -9,7 +9,7 @@
 import UIKit
 
 extension NSURL {
-    var routeParames: [String] {
+    var routeParams: [String] {
         get {
             return self.absoluteString.stringByReplacingOccurrencesOfString("\(self.scheme)://", withString: "", options: [], range: nil).componentsSeparatedByString("/").filter({ (s) -> Bool in
                 s.characters.count > 0

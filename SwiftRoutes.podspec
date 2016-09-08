@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftRoutes'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Simple routing library writtein in Swift.'
   s.description      = 'SwiftRoutes is a simple routing library. SwiftRoutes fires handler according to NSURL.'
 

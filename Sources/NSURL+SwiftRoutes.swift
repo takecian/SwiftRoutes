@@ -8,12 +8,18 @@
 
 import UIKit
 
-extension NSURL {
+extension URL {
     var routeParams: [String] {
         get {
-            return self.absoluteString.stringByReplacingOccurrencesOfString("\(self.scheme)://", withString: "", options: [], range: nil).componentsSeparatedByString("/").filter({ (s) -> Bool in
-                s.characters.count > 0
-            })
+            if let scheme = self.scheme {
+                return self.absoluteString.replacingOccurrences(of: "\(scheme)://", with: "", options: [], range: nil).components(separatedBy: "/").filter({ (s) -> Bool in
+                    s.characters.count > 0
+                })
+            } else {
+                return self.absoluteString.components(separatedBy: "/").filter({ (s) -> Bool in
+                    s.characters.count > 0
+                })
+            }
 
         }
     }

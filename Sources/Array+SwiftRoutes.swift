@@ -9,9 +9,9 @@
 import UIKit
 
 extension Array where Element : Equatable {
-    mutating func remove(object : Generator.Element) {
-        if let index = self.indexOf(object) {
-            self.removeAtIndex(index)
+    mutating func remove(_ object : Iterator.Element) {
+        if let index = self.index(of: object) {
+            self.remove(at: index)
         }
     }
 }

@@ -24,7 +24,7 @@ class SwiftRoutesTests: XCTestCase {
         var abcRouteHandled = false
         let testUrl = "http://abc/qqq/aaa?test=aaaaaaa&hatena=bookmark"
 
-        SwiftRoutes.addRoute(NSURL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
+        SwiftRoutes.addRoute(URL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
             abcRouteHandled = true
             XCTAssertTrue(params["absoluteString"] == testUrl)
             XCTAssertTrue(params["key"] == "qqq")
@@ -35,42 +35,42 @@ class SwiftRoutesTests: XCTestCase {
         }
 
         XCTAssertTrue(!abcRouteHandled, "abcRouteHandled handled")
-        XCTAssertTrue(SwiftRoutes.routeUrl(NSURL(string: testUrl)!), "not handled")
+        XCTAssertTrue(SwiftRoutes.routeUrl(URL(string: testUrl)!), "not handled")
         XCTAssertTrue(abcRouteHandled, "abcRouteHandled not handled")
     }
 
     func testWithoutSchemeForHttp() {
         var httpRouteHandled = false
-        SwiftRoutes.addRoute(NSURL(string: "/abc/:key/aaa")!) { (params) -> Bool in
+        SwiftRoutes.addRoute(URL(string: "/abc/:key/aaa")!) { (params) -> Bool in
             httpRouteHandled = true
             return true
         }
 
         XCTAssertTrue(!httpRouteHandled, "abcRouteHandled handled")
-        XCTAssertTrue(SwiftRoutes.routeUrl(NSURL(string: "http://abc/qqq/aaa?test=true")!), "not handled")
+        XCTAssertTrue(SwiftRoutes.routeUrl(URL(string: "http://abc/qqq/aaa?test=true")!), "not handled")
         XCTAssertTrue(httpRouteHandled, "abcRouteHandled not handled")
     }
 
     func testWithoutSchemeForCustom() {
         var customRouteHandled = false
-        SwiftRoutes.addRoute(NSURL(string: "/abc/:key/aaa")!) { (params) -> Bool in
+        SwiftRoutes.addRoute(URL(string: "/abc/:key/aaa")!) { (params) -> Bool in
             customRouteHandled = true
             return true
         }
 
         XCTAssertTrue(!customRouteHandled, "abcRouteHandled handled")
-        XCTAssertTrue(SwiftRoutes.routeUrl(NSURL(string: "myapp://abc/qqq/aaa?test=true")!), "not handled")
+        XCTAssertTrue(SwiftRoutes.routeUrl(URL(string: "myapp://abc/qqq/aaa?test=true")!), "not handled")
         XCTAssertTrue(customRouteHandled, "abcRouteHandled not handled")
     }
 
     func testWitDifferentScheme() {
         var customAbcRouteHandled = false
-        SwiftRoutes.addRoute(NSURL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
+        SwiftRoutes.addRoute(URL(string: "http://abc/:key/aaa")!) { (params) -> Bool in
             customAbcRouteHandled = true
             return true
         }
 
-        XCTAssertTrue(!SwiftRoutes.routeUrl(NSURL(string: "myapp://abc/qqq/aaa?test=true")!), "not handled")
+        XCTAssertTrue(!SwiftRoutes.routeUrl(URL(string: "myapp://abc/qqq/aaa?test=true")!), "not handled")
         XCTAssertTrue(!customAbcRouteHandled, "abcRouteHandled not handled")
     }
 

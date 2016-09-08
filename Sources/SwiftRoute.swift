@@ -12,17 +12,17 @@ import UIKit
  SwiftRoute store NSURL and corresponding handler and proiroty.
  */
 class SwiftRoute: Equatable {
-    let routePattern: NSURL
+    let routePattern: URL
     var handler: SwiftRoutesHandler
     var priority: Int
 
-    init(pattern: NSURL, priority: Int, handler: SwiftRoutesHandler) {
+    init(pattern: URL, priority: Int, handler: @escaping SwiftRoutesHandler) {
         self.routePattern = pattern
         self.priority = priority
         self.handler = handler
     }
 
-    func isMatchUrl(url: NSURL) -> (isMatched: Bool, params: Dictionary<String, String>) {
+    func isMatchUrl(_ url: URL) -> (isMatched: Bool, params: Dictionary<String, String>) {
         var isMatched = true
         var params = Dictionary<String, String>()
 
@@ -32,12 +32,12 @@ class SwiftRoute: Equatable {
             return (false, params)
         }
 
-        var iterator = zip(routePattern.routeParams, url.routeParams).generate()
+        var iterator = zip(routePattern.routeParams, url.routeParams).makeIterator()
         while let i = iterator.next() {
-            let key = i.0.stringByReplacingOccurrencesOfString(":", withString: "", options: [], range: nil)
+            let key = i.0.replacingOccurrences(of: ":", with: "", options: [], range: nil)
             let value = getValue(i.1)
 
-            if i.0.containsString(":") {
+            if i.0.contains(":") {
                 params[key] = value
             } else {
                 if key != value {
@@ -47,7 +47,7 @@ class SwiftRoute: Equatable {
             }
         }
 
-        if let queryItems = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems {
+        if let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems {
             for item in queryItems {
                 params[item.name] = item.value
             }
@@ -56,10 +56,10 @@ class SwiftRoute: Equatable {
         return (isMatched, params)
     }
 
-    private func getValue(original: String) -> String {
+    fileprivate func getValue(_ original: String) -> String {
         var string = original
-        if let dotRange = string.rangeOfString("?") {
-            string.removeRange(dotRange.startIndex..<string.endIndex)
+        if let dotRange = string.range(of: "?") {
+            string.removeSubrange(dotRange.lowerBound..<string.endIndex)
         }
         return string
     }

@@ -4,12 +4,13 @@
 
 osx_image: xcode8
 language: objective-c
+xcode_sdk: iphonesimulator10.0
 # cache: cocoapods
 # podfile: Example/Podfile
 # before_install:
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -project SwiftRoutes/SwiftRoutes.xcodeproj -scheme SwiftRoutes -sdk iphonesimulator10.0 ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -project SwiftRoutes/SwiftRoutes.xcodeproj -scheme SwiftRoutes ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod spec lint
 - pod lib lint

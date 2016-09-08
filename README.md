@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-A URL Router for iOS, written in Swift 2.2, inspired by  [JLRoutes](https://github.com/joeldev/JLRoutes).
+A URL Router for iOS, written in Swift 3, inspired by  [JLRoutes](https://github.com/joeldev/JLRoutes).
 
 ## Requirements
 

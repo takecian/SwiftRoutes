@@ -11,4 +11,5 @@ language: objective-c
 # - pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild test -project SwiftRoutes/SwiftRoutes.xcodeproj -scheme SwiftRoutes -sdk iphonesimulator10.0 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint --allow-warnings
+- pod spec lint
+- pod lib lint

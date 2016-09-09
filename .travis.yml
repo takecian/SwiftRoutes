@@ -2,11 +2,10 @@
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
-osx_image: xcode8
 language: objective-c
-xcode_project: SwiftRoutes/SwiftRoutes.xcodeproj
-xcode_scheme: SwiftRoutes
-xcode_sdk: iphonesimulator10.0
+osx_image: xcode8
+script:
+- xcodebuild clean test -project SwiftRoutes/SwiftRoutes.xcodeproj -scheme SwiftRoutes -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' ONLY_ACTIVE_ARCH=NO
 # cache: cocoapods
 # podfile: Example/Podfile
 # before_install:

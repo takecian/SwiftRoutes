@@ -14,7 +14,7 @@ let globalScheme = "SwiftRoutesGlobalScheme"
 let keyAbsoluteString = "absoluteString"
 
 /**
- SwiftRoutes manages NSURL as route pattern and corresponding handler.
+ SwiftRoutes manages URL as route pattern and corresponding handler.
  */
 open class SwiftRoutes {
 

@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- SwiftRoute store NSURL and corresponding handler and proiroty.
+ SwiftRoute store URL and corresponding handler and proiroty.
  */
 class SwiftRoute: Equatable {
     let routePattern: URL

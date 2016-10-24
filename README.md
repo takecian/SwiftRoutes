@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-A URL Router for iOS, written in Swift 3, inspired by  [JLRoutes](https://github.com/joeldev/JLRoutes).
+A URL Router for iOS, written in Swift 3, inspired by [JLRoutes](https://github.com/joeldev/JLRoutes).
 
 ## Requirements
 
@@ -49,18 +49,18 @@ pod "SwiftRoutes", "0.1.3"
 
 # Usage
 
-1. Register route(NSURL) and handler.
-2. Call `routeUrl` with NSURL.
+1. Register route(URL) and handler.
+2. Call `routeUrl` with URL.
 3. SwiftRoutes fire a handler that matched.
 
 ```
-SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/")!) { (params) -> Bool in
+SwiftRoutes.addRoute(URL(string: "http://yourdomain.com/users/")!) { (params) -> Bool in
 	let viewController = SomeViewController()
 	navigationController.pushViewController(viewController, animated: true)
     return true
 }
 
-SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/")!))
+SwiftRoutes.routeUrl(URL(string: "http://yourdomain.com/users/")!))
 ```
 
 ## The Parameters Dictionary
@@ -71,7 +71,7 @@ SwiftRoutes provides parameters as Dictionary from following data.
 - Query String
 
 ```
-SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/:userid")!) { (params) -> Bool in
+SwiftRoutes.addRoute(URL(string: "http://yourdomain.com/users/:userid")!) { (params) -> Bool in
 	let viewController = SomeViewController()
 	let userId = params["userid"]   <- userId is "1234"
 	let name = params["name"]   <- name is "testname"
@@ -80,7 +80,7 @@ SwiftRoutes.addRoute(NSURL(string: "http://yourdomain.com/users/:userid")!) { (p
     return true
 }
 
-SwiftRoutes.routeUrl(NSURL(string: "http://yourdomain.com/users/1234?name=testname")!))
+SwiftRoutes.routeUrl(URL(string: "http://yourdomain.com/users/1234?name=testname")!))
 ```
 
 # Practical example - Use SwiftRoutes for UIApplicationShortcutItem
@@ -134,12 +134,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
     	// Define routing
- 		SwiftRoutes.addRoute(NSURL(string: "/home")!) { (params) -> Bool in
+ 		SwiftRoutes.addRoute(URL(string: "/home")!) { (params) -> Bool in
             self.window.rootViewController.moveToHome()  // pseudo code
             return true
         }
 
-        SwiftRoutes.addRoute(NSURL(string: "/setting")!) { (params) -> Bool in
+        SwiftRoutes.addRoute(URL(string: "/setting")!) { (params) -> Bool in
             self.window.rootViewController.moveSetting() // pseudo code
             return true
         }
@@ -154,7 +154,7 @@ Just put `SwiftRoutes.routeUrl(_)` in `application(application:performActionForS
 ```
 @available(iOS 9.0, *)
 func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        let val = SwiftRoutes.routeUrl(NSURL(string: shortcutItem.type)!)
+        let val = SwiftRoutes.routeUrl(URL(string: shortcutItem.type)!)
         completionHandler(val)
 }
 ```

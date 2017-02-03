@@ -21,7 +21,7 @@ SwiftRoutes is compatible with [Carthage](https://github.com/Carthage/Carthage).
 #### Swift 3
 
 ```ruby
-github "takecian/SwiftRoutes" "0.2.1"
+github "takecian/SwiftRoutes" "0.2.2"
 ```
 
 #### Swift 2.2
@@ -38,7 +38,7 @@ it, simply add the following line to your Podfile:
 #### Swift 3
 
 ```ruby
-pod "SwiftRoutes", "0.2.1"
+pod "SwiftRoutes", "0.2.2"
 ```
 
 #### Swift 2.2

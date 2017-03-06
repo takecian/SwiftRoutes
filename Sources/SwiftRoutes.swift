@@ -40,7 +40,7 @@ open class SwiftRoutes {
 
     /**
      Add route pattern and handler.
-
+     
      SwiftRoutes is instantiated for each scheme. For example, SwiftRoutes instance for 'http://'. If developer does not specify scheme, SwiftRoutes for `globalRoutes` is instantiated.
 
      - parameter routePattern: Url to be added.
@@ -67,7 +67,7 @@ open class SwiftRoutes {
             SwiftRoutes.globalRoutes().removeRoute(routePattern)
         }
     }
-
+    
     /**
      Remove all routes.
      */
@@ -76,10 +76,10 @@ open class SwiftRoutes {
             controller.removeAllRoutes()
         }
     }
-
+    
     /**
      Routing url. SwiftRoutes will fire a handler that matches url.
-
+     
      - parameter route: NSURL to be routed.
      - Returns: The results of routing. when handled, return true, when not handled, return false.
 
@@ -90,12 +90,12 @@ open class SwiftRoutes {
             let routes = SwiftRoutes.routesForScheme(scheme)
             handled = routes.routeUrl(route)
         }
-
+        
         if !handled {
             let routes = SwiftRoutes.globalRoutes()
             handled = routes.routeUrl(route)
         }
-
+        
         return handled
     }
 
@@ -117,17 +117,17 @@ open class SwiftRoutes {
     fileprivate class func globalRoutes() -> SwiftRoutes {
         return SwiftRoutes.routesForScheme(globalScheme)
     }
-
+    
     func addRoute(_ routePattern: URL, priority: Int, handler: @escaping SwiftRoutesHandler) {
         let route = SwiftRoute(pattern: routePattern, priority: priority, handler: handler)
         routes.append(route)
     }
-
+    
     func removeRoute(_ routePattern: URL) {
         let removeTargets = routes.filter( { r -> Bool in
             routePattern == r.routePattern as URL
         })
-
+        
         for target in removeTargets {
             routes.remove(target)
         }
@@ -139,15 +139,15 @@ open class SwiftRoutes {
 
     func routeUrl(_ url: URL) -> Bool {
         #if DEBUG
-            print("trying to route \(url.absoluteString), scheme = \(scheme)")
+        print("trying to route \(url.absoluteString), scheme = \(scheme)")
         #endif
 
         var didRoute = false
-
+        
         for route in routes {
-
+            
             let matched = route.isMatchUrl(url)
-
+            
             if matched.isMatched {
                 didRoute = route.handler(matched.params)
             }
@@ -158,14 +158,14 @@ open class SwiftRoutes {
         }
 
         #if DEBUG
-            if didRoute {
-                print("matched, scheme = \(scheme), \(url.absoluteString)")
-            } else {
-                print("not matched, scheme = \(scheme), \(url.absoluteString)")
-            }
+        if didRoute {
+            print("matched, scheme = \(scheme), \(url.absoluteString)")
+        } else {
+            print("not matched, scheme = \(scheme), \(url.absoluteString)")
+        }
         #endif
         
         return didRoute
     }
-    
+
 }

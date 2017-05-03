@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-A URL Router for iOS, written in Swift 3, inspired by [JLRoutes](https://github.com/joeldev/JLRoutes).
+A URL Router for iOS, written in Swift, inspired by [JLRoutes](https://github.com/joeldev/JLRoutes).
 
 ## Requirements
 
@@ -18,16 +18,8 @@ iOS 8.0 or later.
 
 SwiftRoutes is compatible with [Carthage](https://github.com/Carthage/Carthage). Add it to your `Cartfile`:
 
-#### Swift 3
-
 ```ruby
 github "takecian/SwiftRoutes" "0.2.2"
-```
-
-#### Swift 2.2
-
-```ruby
-github "takecian/SwiftRoutes" "0.1.3"
 ```
 
 ### Cocoapods
@@ -35,16 +27,8 @@ github "takecian/SwiftRoutes" "0.1.3"
 SwiftRoutes is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-#### Swift 3
-
 ```ruby
 pod "SwiftRoutes", "0.2.2"
-```
-
-#### Swift 2.2
-
-```ruby
-pod "SwiftRoutes", "0.1.3"
 ```
 
 # Usage

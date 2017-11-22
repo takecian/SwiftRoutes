@@ -19,7 +19,7 @@ iOS 8.0 or later.
 SwiftRoutes is compatible with [Carthage](https://github.com/Carthage/Carthage). Add it to your `Cartfile`:
 
 ```ruby
-github "takecian/SwiftRoutes" "0.2.2"
+github "takecian/SwiftRoutes"
 ```
 
 ### Cocoapods
@@ -28,7 +28,7 @@ SwiftRoutes is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "SwiftRoutes", "0.2.2"
+pod "SwiftRoutes"
 ```
 
 # Usage

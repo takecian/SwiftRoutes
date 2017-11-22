@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6467F6251D73F2A50045BDBC /* SwiftRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6241D73F2A50045BDBC /* SwiftRoute.swift */; };
-		6467F6271D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6261D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift */; };
+		6467F6271D73F2FB0045BDBC /* URL+SwiftRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6261D73F2FB0045BDBC /* URL+SwiftRoutes.swift */; };
 		6467F6291D73F3120045BDBC /* Array+SwiftRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6467F6281D73F3120045BDBC /* Array+SwiftRoutes.swift */; };
 		AC571B911D714E6E00BA55F3 /* SwiftRoutes.h in Headers */ = {isa = PBXBuildFile; fileRef = AC571B901D714E6E00BA55F3 /* SwiftRoutes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC571B981D714E6E00BA55F3 /* SwiftRoutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC571B8D1D714E6E00BA55F3 /* SwiftRoutes.framework */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		6467F6241D73F2A50045BDBC /* SwiftRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRoute.swift; sourceTree = "<group>"; };
-		6467F6261D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftRoutes.swift"; sourceTree = "<group>"; };
+		6467F6261D73F2FB0045BDBC /* URL+SwiftRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+SwiftRoutes.swift"; sourceTree = "<group>"; };
 		6467F6281D73F3120045BDBC /* Array+SwiftRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+SwiftRoutes.swift"; sourceTree = "<group>"; };
 		AC571B8D1D714E6E00BA55F3 /* SwiftRoutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRoutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC571B901D714E6E00BA55F3 /* SwiftRoutes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftRoutes.h; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			children = (
 				AC571BAC1D714F9500BA55F3 /* SwiftRoutes.swift */,
 				6467F6241D73F2A50045BDBC /* SwiftRoute.swift */,
-				6467F6261D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift */,
+				6467F6261D73F2FB0045BDBC /* URL+SwiftRoutes.swift */,
 				6467F6281D73F3120045BDBC /* Array+SwiftRoutes.swift */,
 			);
 			name = Sources;
@@ -170,12 +170,12 @@
 				TargetAttributes = {
 					AC571B8C1D714E6E00BA55F3 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
 					};
 					AC571B961D714E6E00BA55F3 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -237,7 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC571BAD1D714F9500BA55F3 /* SwiftRoutes.swift in Sources */,
-				6467F6271D73F2FB0045BDBC /* NSURL+SwiftRoutes.swift in Sources */,
+				6467F6271D73F2FB0045BDBC /* URL+SwiftRoutes.swift in Sources */,
 				6467F6251D73F2A50045BDBC /* SwiftRoute.swift in Sources */,
 				6467F6291D73F3120045BDBC /* Array+SwiftRoutes.swift in Sources */,
 			);
@@ -378,6 +378,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -398,6 +400,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.takecian.SwiftRoutes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -409,6 +413,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.takecian.SwiftRoutesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -420,6 +426,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.takecian.SwiftRoutesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

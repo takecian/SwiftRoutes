@@ -13,11 +13,11 @@ extension URL {
         get {
             if let scheme = self.scheme {
                 return self.absoluteString.replacingOccurrences(of: "\(scheme)://", with: "", options: [], range: nil).components(separatedBy: "/").filter({ (s) -> Bool in
-                    s.characters.count > 0
+                    s.count > 0
                 })
             } else {
                 return self.absoluteString.components(separatedBy: "/").filter({ (s) -> Bool in
-                    s.characters.count > 0
+                    s.count > 0
                 })
             }
 

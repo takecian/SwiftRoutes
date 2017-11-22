@@ -47,7 +47,7 @@ open class SwiftRoutes {
      - Parameter handler:   Block called when route passed in `routeUrl(_)` matches routePattern.
      */
     open class func addRoute(_ routePattern: URL, handler: @escaping SwiftRoutesHandler) {
-        if let scheme = routePattern.scheme, scheme.characters.count > 0 {
+        if let scheme = routePattern.scheme, scheme.count > 0 {
             SwiftRoutes.routesForScheme(routePattern.scheme!).addRoute(routePattern, priority: 0, handler: handler)
         } else {
             SwiftRoutes.globalRoutes().addRoute(routePattern, priority: 0, handler: handler)
@@ -61,7 +61,7 @@ open class SwiftRoutes {
 
      */
     open class func removeRoute(_ routePattern: URL) {
-        if let scheme = routePattern.scheme, scheme.characters.count > 0 {
+        if let scheme = routePattern.scheme, scheme.count > 0 {
             SwiftRoutes.routesForScheme(routePattern.scheme!).removeRoute(routePattern)
         } else {
             SwiftRoutes.globalRoutes().removeRoute(routePattern)
@@ -86,7 +86,7 @@ open class SwiftRoutes {
      */
     open class func routeUrl(_ route: URL) -> Bool {
         var handled = false
-        if let scheme = route.scheme, scheme.characters.count > 0 {
+        if let scheme = route.scheme, scheme.count > 0 {
             let routes = SwiftRoutes.routesForScheme(scheme)
             handled = routes.routeUrl(route)
         }

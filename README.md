@@ -1,12 +1,13 @@
 # SwiftRoutes
 
-[![CI Status](http://img.shields.io/travis/takecian/SwiftRoutes.svg?style=flat)](https://travis-ci.org/takecian/SwiftRoutes)
 [![Version](https://img.shields.io/cocoapods/v/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![License](https://img.shields.io/cocoapods/l/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftRoutes.svg?style=flat)](http://cocoapods.org/pods/SwiftRoutes)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Build Status](https://app.bitrise.io/app/cdf69e74ec7cb02e/status.svg?token=6LUF4w3ew_nTr21Jgeri4A&branch=master)](https://app.bitrise.io/app/cdf69e74ec7cb02e)
+[![codebeat badge](https://codebeat.co/badges/16be5458-1258-457d-85fc-104f4fff8ddc)](https://codebeat.co/projects/github-com-takecian-swiftroutes-master)
 
-A URL Router for iOS, written in Swift, inspired by [JLRoutes](https://github.com/joeldev/JLRoutes).
+A URL Router for iOS, written in Swift.
 
 ## Requirements
 
